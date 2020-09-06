@@ -14,10 +14,15 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textView.text = "Hello!"
+        showText();
     }
+    
     @IBAction func trashBtn(_ sender: UIBarButtonItem) {
         textView.text = "Trashed!"
+    }
+    
+    func showText() {
+        textView.text = UIPasteboard.general.string
     }
     
 }

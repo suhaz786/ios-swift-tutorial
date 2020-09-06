@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     func showText() {
         textView.text = ""
         for str in pastedStrings {
-            textView.text.append(str)
+            textView.text.append("\(str)\n\n")
         }
     }
     

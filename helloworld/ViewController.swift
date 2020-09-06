@@ -14,8 +14,13 @@ class ViewController: UIViewController {
     
     var pastedStrings: [String] = []
     
+    let DATA_KEY = "data_key"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let loadedStrings = UserDefaults.standard.stringArray(forKey: DATA_KEY) {
+            pastedStrings.append(contentsOf: loadedStrings)
+        }
         showText();
     }
     
@@ -35,6 +40,7 @@ class ViewController: UIViewController {
             return
         }
         pastedStrings.append(text)
+        UserDefaults.standard.set(pastedStrings, forKey: DATA_KEY)
         showText()
     }
     

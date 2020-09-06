@@ -25,5 +25,9 @@ class ViewController: UIViewController {
         textView.text = UIPasteboard.general.string
     }
     
+    func addText() {
+        showText()
+    }
+    
 }
 

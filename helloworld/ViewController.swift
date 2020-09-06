@@ -12,6 +12,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var textView: UITextView!
     
+    var pastedStrings: [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         showText();
@@ -22,10 +24,17 @@ class ViewController: UIViewController {
     }
     
     func showText() {
-        textView.text = UIPasteboard.general.string
+        textView.text = ""
+        for str in pastedStrings {
+            textView.text.append(str)
+        }
     }
     
     func addText() {
+        guard let text = UIPasteboard.general.string, !pastedStrings.contains(text)  else {
+            return
+        }
+        pastedStrings.append(text)
         showText()
     }
     

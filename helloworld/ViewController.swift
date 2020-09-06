@@ -25,7 +25,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func trashBtn(_ sender: UIBarButtonItem) {
-        textView.text = "Trashed!"
+        textView.text = ""
+        pastedStrings.removeAll()
+        UserDefaults.standard.removeObject(forKey: DATA_KEY)
     }
     
     func showText() {
